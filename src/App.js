@@ -4,14 +4,15 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  // Navigate,
+  Navigate,
 } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Signup from "./components/User/Signup/Signup";
-// import Login from "./components/User/Login/Login";
+import Login from "./components/User/Login/Login";
 import Notify from "./components/Design/Notify";
 import Header from "./components/Design/Header/Header";
 import Loading from "./components/Design/Loading/Loading";
+import SidePanel from "./components/Design/SidePanel/SidePanel";
 // import Footer from "./components/Design/Footer/Footer";
 // import PrivacyPolicy from "./components/other/PrivacyPolicy";
 // import TermsNConditions from "./components/other/TermsNConditions";
@@ -21,9 +22,10 @@ import Loading from "./components/Design/Loading/Loading";
 import store from "./store";
 import { loadUser } from "./actions/user";
 import { useSelector } from "react-redux";
+import AddProduct from "./components/Product/AddProduct/AddProduct";
 // import Swal from "sweetalert2";
 function App() {
-  const { loading } = useSelector((state) => state.user);
+  const { loading, user } = useSelector((state) => state.user);
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
@@ -37,11 +39,24 @@ function App() {
   return (
     <Router>
       <Header />
+      <SidePanel />
       <Loading show={loading} />
       <Notify />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/signup" element={<Signup />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route
+          exact
+          path="/add-product"
+          element={
+            user && user.role === "Supplier" ? (
+              <AddProduct />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
       </Routes>
       {/* <Footer /> */}
     </Router>

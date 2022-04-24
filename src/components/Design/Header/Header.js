@@ -12,11 +12,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { logout } from "../../../actions/user";
 import { useDispatch, useSelector } from "react-redux";
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 // import MainDrawer from "./MainDrawer";
 import { SHOW_SIDE_PANEL, HIDE_SIDE_PANEL } from "../../../constants/design";
 // import { loadCart } from "../../redux/actions/cartActions";
 // import Swal from "sweetalert2";
+import SendNotif from "../../../utils/SendNotif";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
@@ -30,6 +31,7 @@ const Header = () => {
   //   }, [dispatch /*cart*/]);
   const handleLogout = (e) => {
     dispatch(logout());
+    dispatch(SendNotif("info", "Logged Out Successfully"));
     // Swal.fire({
     //   title: "Are you sure?",
     //   text: "You won't be able to revert this!",

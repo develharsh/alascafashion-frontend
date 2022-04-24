@@ -20,3 +20,9 @@
 .textCenter {
   text-align: center;
 }
+.negateUnderLine {
+  text-decoration: none;
+}
+input[type="file"] {
+  display: none;
+}

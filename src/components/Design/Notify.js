@@ -21,7 +21,10 @@ const Notify = () => {
         autoHideDuration={5000}
         onClose={() => handleClose()}
       >
-        <Alert onClose={() => handleClose()} severity={data ? data.bg : ""}>
+        <Alert
+          onClose={() => handleClose()}
+          severity={data ? data.bg : "warning"}
+        >
           {data ? data.msg : ""}
         </Alert>
       </Snackbar>
