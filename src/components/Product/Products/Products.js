@@ -26,14 +26,14 @@ const Products = () => {
   useEffect(() => {
     if (!cats) dispatch(getCats());
     if (!subcats) dispatch(getSubCats(""));
-    if (cats && cats.length && cats[0].label != "All") {
+    if (cats && cats.length && cats[0].label !== "All") {
       cats.unshift({ label: "All", _id: "" });
     }
-    if (subcats && subcats.length && subcats[0].label != "All") {
+    if (subcats && subcats.length && subcats[0].label !== "All") {
       subcats.unshift({ label: "All", _id: "" });
     }
     if (!productsData) dispatch(getProducts(query.toString()));
-    console.log("we", productsData, cats, subcats);
+    // console.log("we", productsData, cats, subcats);
   }, [dispatch, productsData, cats, subcats]);
 
   const [values, setValues] = useState({

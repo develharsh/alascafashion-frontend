@@ -5,6 +5,7 @@
   height: 80px;
   transform: rotate(45deg);
   transform-origin: 40px 40px;
+  /* background: red; */
 }
 .lds-heart div {
   top: 32px;
@@ -12,7 +13,11 @@
   position: absolute;
   width: 32px;
   height: 32px;
-  background: rgb(247, 7, 147);
+  /* background: rgb(247, 7, 147); */
+  /* background: rgb(0, 0, 0, 0.1); */
+  /* background: #fff; */
+  /* background: #000; */
+  background: red;
   animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .lds-heart div:after,
@@ -22,11 +27,14 @@
   display: block;
   width: 32px;
   height: 32px;
-  background: rgb(247, 7, 147);
+  /* background: rgb(247, 7, 147); */
+  /* background: #000; */
+  background: red;
 }
 .lds-heart div:before {
   left: -24px;
   border-radius: 50% 0 0 50%;
+  /* background: blue; */
 }
 .lds-heart div:after {
   top: -24px;

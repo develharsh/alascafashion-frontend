@@ -5,7 +5,7 @@ const Loading = ({ show }) => {
   return (
     <Backdrop
       sx={{
-        backgroundColor: "#fff",
+        backgroundColor: "rbg(0, 0, 0, 0.2)",
         zIndex: (theme) => theme.zIndex.drawer + 1,
       }}
       open={show ? true : false}
