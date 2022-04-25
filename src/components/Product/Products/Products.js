@@ -158,18 +158,20 @@ const Products = () => {
             <ProductCard data={each} key={idx} />
           ))}
       </div>
-      <div className="justfycent dFlex">
-        <Pagination
-          count={productsData.noOfPages}
-          color="secondary"
-          page={productsData.page}
-          size="small"
-          onChange={(e, v) => handlePage(v)}
-          showFirstButton
-          sx={{ mt: 5 }}
-          showLastButton
-        />
-      </div>
+      {productsData && (
+        <div className="justfycent dFlex">
+          <Pagination
+            count={productsData.noOfPages}
+            color="secondary"
+            page={productsData.page}
+            size="small"
+            onChange={(e, v) => handlePage(v)}
+            showFirstButton
+            sx={{ mt: 5 }}
+            showLastButton
+          />
+        </div>
+      )}
     </>
   );
 };
