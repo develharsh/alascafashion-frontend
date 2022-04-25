@@ -9,6 +9,7 @@ export const sizesArray = [
   "XXXL",
 ];
 export const coloursArray = [
+  "multi-coloured",
   "aliceblue",
   "antiquewhite",
   "aqua",
