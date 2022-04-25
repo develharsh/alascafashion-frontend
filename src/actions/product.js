@@ -65,6 +65,28 @@ export const getProducts = (query) => async (dispatch) => {
   }
 };
 
+//Get Specific Product
+export const getSpecificProd = (_id) => async (dispatch) => {
+  // console.log(query);
+  dispatch({ type: GET_PRODUCT_REQUEST });
+  try {
+    const response = await axios({
+      method: "get",
+      url: `${BASE_URL}product/${_id}`,
+    });
+    const { data } = response;
+    dispatch({
+      type: GET_PRODUCT_SUCCESS,
+      payload: data.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_PRODUCT_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
 export const clearErrors = () => async (dispatch) => {
   dispatch({ type: CLEAR_ERRORS });
 };

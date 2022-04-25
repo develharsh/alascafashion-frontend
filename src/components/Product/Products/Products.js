@@ -32,7 +32,7 @@ const Products = () => {
     if (subcats && subcats.length && subcats[0].label !== "All") {
       subcats.unshift({ label: "All", _id: "" });
     }
-    if (!productsData) dispatch(getProducts(query.toString()));
+    if (!productsData) dispatch(getProducts(query));
     // console.log("we", productsData, cats, subcats);
   }, [dispatch, productsData, cats, subcats]);
 

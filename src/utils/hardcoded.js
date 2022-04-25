@@ -1,4 +1,13 @@
-export const sizesArray = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"];
+export const sizesArray = [
+  "Free Size",
+  "XS",
+  "S",
+  "M",
+  "L",
+  "XL",
+  "XXL",
+  "XXXL",
+];
 export const coloursArray = [
   "aliceblue",
   "antiquewhite",

@@ -29,7 +29,7 @@ export const product = (state = {}, action) => {
     case GET_PRODUCTS_FAIL:
       return { ...state, productsData: action.payload, loading: false };
     case GET_PRODUCT_FAIL:
-      return { ...state, product: action.payload, loading: false };
+      return { ...state, error: action.payload, loading: false };
     case CLEAR_ERRORS:
       return {
         ...state,
