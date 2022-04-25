@@ -21,15 +21,18 @@ import SidePanel from "./components/Design/SidePanel/SidePanel";
 // import MyTrips from "./components/Trip/MyTrips";
 import store from "./store";
 import { loadUser } from "./actions/user";
+import { loadCart } from "./actions/design";
 import { useSelector } from "react-redux";
 import AddProduct from "./components/Product/AddProduct/AddProduct";
 import Products from "./components/Product/Products/Products";
 import Product from "./components/Product/Product/Product";
+import Cart from "./components/Cart/Cart";
 // import Swal from "sweetalert2";
 function App() {
   const { loading, user } = useSelector((state) => state.user);
   useEffect(() => {
     store.dispatch(loadUser());
+    store.dispatch(loadCart());
   }, []);
   // const LoginRequired = () => {
   //   // Swal.fire({
@@ -61,6 +64,7 @@ function App() {
         />
         <Route exact path="/products" element={<Products />} />
         <Route exact path="/product/:_id" element={<Product />} />
+        <Route exact path="/cart" element={<Cart />} />
       </Routes>
       {/* <Footer /> */}
     </Router>

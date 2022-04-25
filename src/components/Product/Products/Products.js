@@ -25,7 +25,7 @@ const Products = () => {
 
   useEffect(() => {
     if (!cats) dispatch(getCats());
-    if (!subcats) dispatch(getSubCats(""));
+    if (!subcats) dispatch(getSubCats("626505a6a8fc44666c191d7f"));
     if (cats && cats.length && cats[0].label !== "All") {
       cats.unshift({ label: "All", _id: "" });
     }

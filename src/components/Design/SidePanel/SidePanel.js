@@ -5,6 +5,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import PostAddIcon from "@mui/icons-material/PostAdd";
+import CheckroomIcon from "@mui/icons-material/Checkroom";
 import { useDispatch, useSelector } from "react-redux";
 import { HIDE_SIDE_PANEL } from "../../../constants/design";
 import { Link } from "react-router-dom";
@@ -39,6 +40,14 @@ const MainDrawer = () => {
             <Grid container alignItems="center" className="mdItem" gap={0.3}>
               <HomeIcon sx={{ mr: 1 }} />
               Home
+            </Grid>
+          </div>
+        </Link>
+        <Link to="/products" className="negateUnderLine">
+          <div className="mdNormal ">
+            <Grid container alignItems="center" className="mdItem" gap={0.3}>
+              <CheckroomIcon sx={{ mr: 1 }} />
+              Products
             </Grid>
           </div>
         </Link>

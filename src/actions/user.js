@@ -97,7 +97,7 @@ export const loadUser = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   dispatch({ type: LOGOUT_REQUEST });
   try {
-    cookie.remove("token");
+    cookie.remove("token", { path: "/" });
     dispatch({
       type: NO_USER,
     });

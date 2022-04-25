@@ -24,7 +24,7 @@ import "./Header.css";
 const Header = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  const { enableSidePanel } = useSelector((state) => state.design);
+  const { enableSidePanel, cart } = useSelector((state) => state.design);
   //   const { cart } = useSelector((state) => state.cartOps);
   //   useEffect(() => {
   //     // if (!cart) dispatch(loadCart());
@@ -82,8 +82,8 @@ const Header = () => {
               </Typography>
               <Link to="/cart">
                 <Badge
-                  // badgeContent={cart && cart.length}
-                  badgeContent="2"
+                  badgeContent={cart && cart.length}
+                  // badgeContent="2"
                   sx={{
                     mr: 2,
                     "& .MuiBadge-badge": {
