@@ -5,6 +5,9 @@ import {
   ADD_PRODUCT_REQUEST,
   ADD_PRODUCT_SUCCESS,
   ADD_PRODUCT_FAIL,
+  GET_PRODUCTS_REQUEST,
+  GET_PRODUCTS_SUCCESS,
+  GET_PRODUCTS_FAIL,
   CLEAR_MESSAGES,
   CLEAR_ERRORS,
 } from "../constants/product";
@@ -32,6 +35,28 @@ export const addProduct = (body) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: ADD_PRODUCT_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+//Get Products
+export const getProducts = (query) => async (dispatch) => {
+  // console.log(query);
+  dispatch({ type: GET_PRODUCTS_REQUEST });
+  try {
+    const response = await axios({
+      method: "get",
+      url: `${BASE_URL}product/get?${query}`,
+    });
+    const { data } = response;
+    dispatch({
+      type: GET_PRODUCTS_SUCCESS,
+      payload: data.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_PRODUCTS_FAIL,
       payload: error.response.data.message,
     });
   }

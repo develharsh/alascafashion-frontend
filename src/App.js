@@ -23,6 +23,7 @@ import store from "./store";
 import { loadUser } from "./actions/user";
 import { useSelector } from "react-redux";
 import AddProduct from "./components/Product/AddProduct/AddProduct";
+import Products from "./components/Product/Products/Products";
 // import Swal from "sweetalert2";
 function App() {
   const { loading, user } = useSelector((state) => state.user);
@@ -57,6 +58,7 @@ function App() {
             )
           }
         />
+        <Route exact path="/products" element={<Products />} />
       </Routes>
       {/* <Footer /> */}
     </Router>

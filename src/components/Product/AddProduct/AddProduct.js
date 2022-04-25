@@ -54,6 +54,7 @@ const AddProduct = () => {
   const [values, setValues] = useState({
     title: "",
     description: "",
+    thumbnail: "",
     sizes: [],
     colours: [],
     inStock: "",
@@ -67,6 +68,7 @@ const AddProduct = () => {
   const {
     title,
     description,
+    thumbnail,
     sizes,
     colours,
     inStock,
@@ -141,6 +143,8 @@ const AddProduct = () => {
       return dispatch(SendNotif("error", "Cost Without Discount is blank."));
     if (disCost === "")
       return dispatch(SendNotif("error", "Cost After Discount is blank."));
+    if (thumbnail === "")
+      return dispatch(SendNotif("error", "Thumbnail Image Number is missing."));
     const myForm = new FormData();
     myForm.append("title", title);
     myForm.append("category", category);
@@ -151,6 +155,7 @@ const AddProduct = () => {
     });
     sizes.forEach((size) => myForm.append("sizes", size));
     colours.forEach((colour) => myForm.append("colours", colour));
+    myForm.append("thumbnail", Number(thumbnail) - 1);
     myForm.append("inStock", inStock);
     myForm.append("productId", productId);
     myForm.append("cost", cost);
@@ -181,7 +186,16 @@ const AddProduct = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     // console.log(value);
-    setValues({ ...values, [name]: value });
+    let newstate = { ...values };
+    if (name === "thumbnail") {
+      if (Number(value) >= 1 && Number(value) <= images.length)
+        newstate[name] = value;
+      else {
+        newstate[name] = "";
+        dispatch(SendNotif("warning", "Allowed Values are: 1-5"));
+      }
+    } else newstate[name] = value;
+    setValues(newstate);
   };
   return (
     <>
@@ -336,6 +350,14 @@ const AddProduct = () => {
               ))}
             </Select>
           </FormControl>
+          <TextField
+            label="Thumbnail Image"
+            type="number"
+            name="thumbnail"
+            value={thumbnail}
+            sx={{ m: 1 }}
+            onChange={handleChange}
+          />
           <TextField
             label="Stock Available"
             type="number"

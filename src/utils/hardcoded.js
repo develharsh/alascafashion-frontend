@@ -188,3 +188,26 @@ export const daysUpto7 = [
     _id: "7 Days",
   },
 ];
+
+export const sortByOps = [
+  {
+    label: "Default",
+    _id: "",
+  },
+  {
+    label: "New-Old",
+    _id: "latest",
+  },
+  {
+    label: "Old-New",
+    _id: "oldest",
+  },
+  {
+    label: "Low-High",
+    _id: "low-high",
+  },
+  {
+    label: "High-Low",
+    _id: "high-low",
+  },
+];

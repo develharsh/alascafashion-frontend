@@ -2,6 +2,9 @@ import {
   ADD_PRODUCT_REQUEST,
   ADD_PRODUCT_SUCCESS,
   ADD_PRODUCT_FAIL,
+  GET_PRODUCTS_REQUEST,
+  GET_PRODUCTS_SUCCESS,
+  GET_PRODUCTS_FAIL,
   CLEAR_MESSAGES,
   CLEAR_ERRORS,
 } from "../constants/product";
@@ -9,11 +12,16 @@ import {
 export const product = (state = {}, action) => {
   switch (action.type) {
     case ADD_PRODUCT_REQUEST:
+    case GET_PRODUCTS_REQUEST:
       return { ...state, loading: true };
     case ADD_PRODUCT_SUCCESS:
       return { ...state, message: action.payload, loading: false };
+    case GET_PRODUCTS_SUCCESS:
+      return { ...state, productsData: action.payload, loading: false };
     case ADD_PRODUCT_FAIL:
       return { ...state, error: action.payload, loading: false };
+    case GET_PRODUCTS_FAIL:
+      return { ...state, productsData: action.payload, loading: false };
     case CLEAR_ERRORS:
       return {
         ...state,
